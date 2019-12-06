@@ -1,14 +1,26 @@
-import Vue from 'vue'
-import './plugins/axios'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import './plugins/element.js'
+import Vue from "vue";
+import "./plugins/axios";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import "./plugins/element.js";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount("#app");
+
+// 圖片家載錯誤
+document.addEventListener(
+  "error",
+  function(e) {
+    var elem = e.target;
+    if (elem.tagName.toLowerCase() === "img") {
+      elem.src = require("./assets/image/errorImg.png");
+    }
+  },
+  true
+);

@@ -1,36 +1,57 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
+    <main-header></main-header>
+
+    <div class="my-main-content">
+      <router-view />
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <main-footer></main-footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MainHeader from "./components/MainHeader.vue";
+import MainFooter from "./components/MainFooter.vue";
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    MainHeader,
+    MainFooter
   }
-}
+};
 </script>
 
 <style>
+html {
+  height: -webkit-fill-available;
+}
+body {
+  margin: 0;
+  height: -webkit-fill-available;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: white;
+  height: -webkit-fill-available;
+}
+
+.my-main-content {
+  min-height: calc(100vh - 90px);
+  background-color: #333333;
+}
+
+.square-img {
+  width: 100%;
+  height: 0px;
+  padding-bottom: 100%;
+  position: relative;
+}
+.square-img img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 </style>
