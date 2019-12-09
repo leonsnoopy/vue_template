@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import Vue from "vue";
 import "./plugins/axios";
 import App from "./App.vue";
@@ -6,6 +7,22 @@ import store from "./store";
 import "./plugins/element.js";
 
 Vue.config.productionTip = false;
+
+// global mixin
+Vue.mixin({
+  methods: {
+    $routerTo(url_hash) {
+      this.$router.push(url_hash).catch(err => {
+        if (err.name !== "NavigationDuplicated") {
+          console.log(err);
+        }
+      });
+    },
+    $goBack() {
+      this.$router.go(-1);
+    }
+  }
+});
 
 new Vue({
   router,

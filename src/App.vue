@@ -1,10 +1,19 @@
 <template>
   <div id="app">
-    <main-header></main-header>
+    <main-header class="sticky-0"></main-header>
 
-    <div class="my-main-content">
+    <!-- <div class="response sticky-60">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
+        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+      </el-breadcrumb>
+    </div> -->
+
+    <el-row class="my-main-content">
       <router-view />
-    </div>
+    </el-row>
 
     <main-footer></main-footer>
   </div>
@@ -43,6 +52,19 @@ body {
   background-color: #333333;
 }
 
+@media screen and (min-width: 599px) {
+  .response {
+    max-width: 1280px;
+    padding-right: 8vw;
+    padding-left: 8vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .response {
+  }
+}
+
 .square-img {
   width: 100%;
   height: 0px;
@@ -53,5 +75,17 @@ body {
   width: 100%;
   height: 100%;
   position: absolute;
+}
+
+.sticky-0 {
+  position: sticky;
+  z-index: 10;
+  top: 0px;
+}
+
+.sticky-60 {
+  position: sticky;
+  z-index: 10;
+  top: 60px;
 }
 </style>
